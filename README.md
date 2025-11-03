@@ -1,6 +1,36 @@
 # LDS Library Reference Plugin for Obsidian
 
-Easily insert your favorite scripture verses and selections from General Conference talks into Obsidian!
+Easily ins### How To Reference Verses
+
+Insert a callout to a verse using either `:<Book Name> <Chapter Number>:<Verse Numbers>:` or `:<Book Name> <Chapter Number> <Verse Numbers>:`.
+
+You can referece any range, selection, or series of verses from a given chapter using the above syntax.
+
+Obsidian won't recognize your desired reference until you add a : at the end. Each reference must be on its own line.
+
+Only English book titles are recognized. For example `:1 Nephi 1 1:` is recognized, but `:1 Нефи 1:1:` isn't.
+
+Refer to [BOOKS.md](https://github.com/pacokwon/obsidian-lds-library-plugin/blob/main/docs/BOOKS.md) for the complete list of book names used and recognized in this plugin.
+
+Example:
+
+![Verse Completion](https://github.com/user-attachments/assets/6ed6cc2a-132b-48d1-bceb-7ed87a6dd45c)
+
+Inserted Callout Example:
+
+![Verse Callout](https://github.com/user-attachments/assets/b74f0d9d-c07e-41bd-8219-be6a6f373787)
+
+### How To Insert Hyperlinks Only
+
+If you want to insert only a hyperlink to a scripture reference without the callout block, use the `!:` notation instead:
+
+`!:<Book Name> <Chapter Number>:<Verse Numbers>:`
+
+For example, `!:Exodus 28:3:` will insert:
+
+`[Exodus 28:3](https://www.churchofjesuschrist.org/study/scriptures/ot/ex/28?lang=eng&id=p3)`
+
+This works with the same syntax as regular verse references, including language specification and verse ranges.cripture verses and selections from General Conference talks into Obsidian!
 
 [demo](https://github.com/user-attachments/assets/9c5dca75-2104-4bc0-9467-84ca9b5ff541)
 

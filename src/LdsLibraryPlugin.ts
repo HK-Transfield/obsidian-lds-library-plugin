@@ -3,6 +3,7 @@ import { DEFAULT_SETTINGS, LdsLibrarySettings } from "@/settings";
 import { VerseSuggester } from "@/suggestion/VerseSuggester";
 import { LdsLibrarySettingTab } from "@/ui/SettingTab";
 import { ConferenceSuggester } from "./suggestion/ConferenceSuggester";
+import { HyperlinkVerseSuggester } from "./suggestion/HyperlinkVerseSuggester";
 
 export default class LdsLibraryPlugin extends Plugin {
     settings: LdsLibrarySettings;
@@ -10,6 +11,7 @@ export default class LdsLibraryPlugin extends Plugin {
     async onload() {
         await this.loadSettings();
         this.addSettingTab(new LdsLibrarySettingTab(this.app, this));
+        this.registerEditorSuggest(new HyperlinkVerseSuggester(this));
         this.registerEditorSuggest(new VerseSuggester(this));
         this.registerEditorSuggest(new ConferenceSuggester(this));
     }
