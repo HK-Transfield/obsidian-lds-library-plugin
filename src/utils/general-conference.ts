@@ -12,3 +12,15 @@ export function toCalloutString(talk: ConferenceTalkData) {
 
     return [header, body, byline, ""].join("\n");
 }
+
+export function toHyperlinkString(params: {
+    url: string;
+    title: string;
+    author: string;
+    year: number;
+    month: 4 | 10;
+}): string {
+    const { url, title, author, year, month } = params;
+    const monthText = month === 4 ? "April" : "October";
+    return `${author}, "[${title}](${url})," ${monthText} ${year} General Conference`;
+}

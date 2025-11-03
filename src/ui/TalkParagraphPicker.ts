@@ -22,6 +22,7 @@ export class TalkParagraphPicker extends Modal {
         private resourcePath: string,
         private language: AvailableLanguage,
         private onPick: (result: Selection) => void,
+        private onHyperlinkInsert?: (result: { start: string; range: string; author: { name: string; role: string } }) => void,
     ) {
         super(app);
         this.selected = new Set();
@@ -139,6 +140,29 @@ export class TalkParagraphPicker extends Modal {
         });
 
         div.appendChild(button);
+
+        if (this.onHyperlinkInsert) {
+            const hyperlinkButton = document.createElement("button");
+            hyperlinkButton.className = "create-link";
+            hyperlinkButton.textContent = "Insert Hyperlink";
+            hyperlinkButton.addEventListener("click", (_) => {
+                const selection = this.makeSelection();
+
+                if (selection === null) {
+                    this.close();
+                    return;
+                }
+
+                this.onHyperlinkInsert!({
+                    start: selection.start,
+                    range: selection.range,
+                    author: selection.author,
+                });
+                this.close();
+            });
+
+            div.appendChild(hyperlinkButton);
+        }
 
         return div;
     }

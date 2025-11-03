@@ -15,7 +15,7 @@ import { SpinnerModal } from "@/ui/SpinnerModal";
 import { TalkParagraphPicker } from "@/ui/TalkParagraphPicker";
 import { TalkSuggestion, TalkSuggestModal } from "@/ui/TalkSuggestModal";
 import { BASE_URL, getConferenceTalkListUrl } from "@/utils/api";
-import { toCalloutString } from "@/utils/general-conference";
+import { toCalloutString, toHyperlinkString } from "@/utils/general-conference";
 import { SingleSuggestion } from "./SingleSuggestion";
 
 const CONF_REG =
@@ -155,6 +155,18 @@ export class ConferenceSuggester extends EditorSuggest<ConferencePromptSuggestio
                     });
 
                     editor.replaceRange(callout, start, end);
+                },
+                ({ start: startId, range, author }) => {
+                    const url = `${BASE_URL}${href}?lang=${language}&id=${range}#${startId}`;
+                    const hyperlink = toHyperlinkString({
+                        url,
+                        title,
+                        author: author.name,
+                        year,
+                        month,
+                    });
+
+                    editor.replaceRange(hyperlink, start, end);
                 },
             ).open();
         }).open();
