@@ -76,7 +76,7 @@ export class HyperlinkVerseSuggestion {
         this.url = this.getUrl(volumeTitleShort, bookTitleShort);
 
         const scriptureData = await fetchScripture(this.url);
-        this.bookTitleInLanguage = scriptureData.nativeBookTitle;
+        this.bookTitleInLanguage = scriptureData.nativeBookTitle.split(" ").slice(0, -1).join(" ");
     }
 
     public render(el: HTMLElement): void {
