@@ -1,6 +1,6 @@
-# LDS Library Reference Plugin for Obsidian
+# Gospel Library Reference Plugin for Obsidian
 
-Easily ins### How To Reference Verses
+### How To Reference Verses
 
 Insert a callout to a verse using either `:<Book Name> <Chapter Number>:<Verse Numbers>:` or `:<Book Name> <Chapter Number> <Verse Numbers>:`.
 
@@ -78,7 +78,7 @@ The plugin can also be manually installed by:
 
 The [standard works](https://www.churchofjesuschrist.org/study/manual/gospel-topics/standard-works?lang=eng), or the volumes of scripture officially accepted by the Church of Jesus Christ of Latter-day Saints are available.
 
-- Holy Bible (King James Version)
+- Holy Bible (KJV)
 - Book of Mormon
 - Doctrine and Covenants
 - Pearl of Great Price
